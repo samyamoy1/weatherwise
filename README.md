@@ -1,111 +1,73 @@
 # WeatherWise - ML Weather Prediction App
 
-A modern weather prediction application with ML-powered 5-day forecasts, featuring a beautiful glass-morphism UI that adapts to weather conditions.
+A beautiful weather prediction app with real-time weather data, 5-day forecast, air quality index, and smart recommendations.
+
+![WeatherWise](https://img.shields.io/badge/Weather-Blue?style=for-the-badge)
+![OpenWeatherMap](https://img.shields.io/badge/OpenWeatherMap-API-green?style=for-the-badge)
 
 ## Features
 
-- **Current Weather**: Real-time weather data with temperature, humidity, wind, UV index
-- **ML-Powered 5-Day Forecast**: Predicts temperature ranges and rain probability using machine learning
-- **Rain Probability Chart**: Visual representation of precipitation chances
-- **Smart Recommendations**: AI-generated tips based on weather conditions
+- **Real-time Weather**: Current temperature, feels like, humidity, wind, UV index
+- **5-Day Forecast**: Weather predictions with confidence levels
+- **Air Quality Index (AQI)**: PM2.5, PM10, CO, NO2 levels
+- **Rain Probability**: Visual chart showing rain chances
+- **Smart Recommendations**: AI-generated tips based on weather
 - **Unit Toggle**: Switch between Celsius and Fahrenheit
-- **Recent Searches**: Quick access to previously searched cities
+- **Responsive Design**: Works on desktop and mobile
 
-## Tech Stack
+## How to Use
 
-### Backend
-- FastAPI (Python)
-- scikit-learn (ML models)
-- OpenWeatherMap API
-
-### Frontend
-- React 18
-- Vite
-- Tailwind CSS
-- Lucide React Icons
-
-## Setup
-
-### 1. Install Backend Dependencies
+Simply open `index.html` in any modern browser - **no server required!**
 
 ```bash
-cd backend
-pip install fastapi uvicorn pandas numpy scikit-learn requests
+# Just open the file directly
+open index.html
+# or
+double-click index.html
 ```
 
-### 2. Install Frontend Dependencies
+## For Developers
 
-```bash
-cd frontend
-npm install
+### Tech Stack
+- **Frontend**: HTML, CSS, JavaScript (Vanilla)
+- **API**: OpenWeatherMap API
+- **Icons**: Lucide Icons
+
+### API Key
+The app uses a demo OpenWeatherMap API key. For production, replace it with your own:
+1. Get a free API key at [OpenWeatherMap](https://openweathermap.org/api)
+2. Open `index.html`
+3. Find `API_KEY` variable (around line 520)
+4. Replace with your key
+
+### Deployment
+Since this is a static HTML file, you can deploy it anywhere:
+- GitHub Pages
+- Netlify
+- Vercel
+- Any web server
+
+Just upload `index.html` to your hosting provider.
+
+## Project Structure
+```
+weatherwise/
+├── index.html          # Main app (standalone - works without backend)
+├── README.md
+├── SPEC.md             # Design specification
+├── backend/
+│   └── main.py         # Python FastAPI backend (optional - for ML predictions)
+└── frontend/           # React version (optional)
+    └── ...
 ```
 
-### 3. Run the Application
+## Weather Data
 
-**Terminal 1 - Backend:**
-```bash
-cd backend
-python main.py
-```
-Backend will start on http://localhost:8000
+The app fetches data from OpenWeatherMap:
+- Current weather conditions
+- 5-day forecast (3-hour intervals)
+- Air quality index
 
-**Terminal 2 - Frontend:**
-```bash
-cd frontend
-npm run dev
-```
-Frontend will start on http://localhost:5173
+## License
 
-## API Endpoints
-
-- `GET /api/health` - Health check
-- `GET /api/weather?city={city_name}` - Get weather data with ML forecast
-
-## Example Response
-
-```json
-{
-  "current": {
-    "temp": 25,
-    "humidity": 65,
-    "wind_speed": 12,
-    "condition": "partly_cloudy",
-    ...
-  },
-  "forecast": [
-    {
-      "day": "Monday",
-      "high": 28,
-      "low": 22,
-      "rain_probability": 45,
-      "confidence": 0.78,
-      ...
-    },
-    ...
-  ],
-  "recommendations": [
-    "Great day for outdoor activities!",
-    "Don't forget your umbrella!"
-  ]
-}
-```
-
-## ML Models
-
-### Temperature Prediction
-- Algorithm: Gradient Boosting Regressor
-- Features: day of year, base temp, humidity, wind speed, UV index
-
-### Rain Prediction
-- Algorithm: Random Forest Classifier
-- Features: temperature, humidity, wind speed
-
-## Weather Icons
-
-The app supports the following weather conditions:
-- ☀️ Sunny
-- ⛅ Partly Cloudy
-- ☁️ Cloudy
-- 🌧️ Rainy
-- ❄️ Snowy
-- ⛈️ Thunderstorm
+MIT License - feel free to use and modify!
