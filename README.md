@@ -25,6 +25,8 @@ open index.html
 # or
 double-click index.html
 ```
+##Try Demo
+https://samyamoy1.github.io/weatherwise
 
 ## For Developers
 
